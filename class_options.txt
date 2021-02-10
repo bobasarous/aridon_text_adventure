@@ -1,0 +1,9 @@
+alignment=Lawful Good
+background=Acolyte
+class=Barbarian
+gender=male
+health=12
+languages=Common Dwarvish 
+level=1
+race=Dwarf
+size=Medium
