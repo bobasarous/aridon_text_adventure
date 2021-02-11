@@ -145,9 +145,9 @@ def build_setup():  # The setup for the PC's alignment, background, build (class
 
     while True:
         # All the classes in the game
-        classes_ = ["Barbarian", "Cleric", "Druid", "Rouge", "Warlock"]
+        classes_ = ["Bard", "Cleric", "Druid", "Paladin", "Warlock"]
         # The health values for each class MAKE SURE THIS IS ALIGNED with ^
-        health_values = [12, 8, 8, 8, 8]
+        health_values = [8, 8, 8, 10, 8]
 
         print("Please choose a class.")
         print(f"Type 1 for {classes_[0]}")
@@ -318,7 +318,7 @@ def build_options():
 
 
 # p_alignment, p_background, p_bonds, p_flaws, p_gender, p_height, p_ideals, p_lang, p_lvl, p_race, p_size, p_weight
-# p_c_abilities, p_r_traits, p_attacks, p_bg_options, p_build, p_health, p_proficiencies
+# p_c_features, p_r_traits, p_attacks, p_bg_options, p_build, p_health, p_proficiencies
 gender, lang_choices, race, size = race_setup()
 alignment, bg, build, health = build_setup()
 
