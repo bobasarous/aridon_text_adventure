@@ -6,6 +6,7 @@
 
 import race_descriptions
 
+
 # Setup for the player's race, size, most of the languages they will know, and their gender
 def race_setup():
     while True:  # Loop for user to choose their gender
@@ -76,11 +77,11 @@ def race_setup():
         # Used to access the races_dict variable, and makes it easier to assign race here, only making the user type -
         # numbers, instead of typing a whole word, which they could misspell, and then I'd have to make if statements -
         # for each race, instead of just assigning it based off of numbers and such, much easier to have both variables
-        races = ["Dwarf", "Dragonborn", "Elf", "Human", "Loxodon", "Half-Orc", "Tiefling"]
+        races = ["Dwarf", "Elf", "Human", "Half-Orc", "Tiefling"]
 
         # All the races in the game, make sure they line up with their racial counterpart, will make it easier to -
         # grab which lang you want based on the race the user choose
-        languages = ["Dwarvish", "Draconic", "Elvish", "Common", "Loxodon", "Orcish", "Infernal"]
+        languages = ["Dwarvish", "Elvish", "Common", "Orcish", "Infernal"]
         # All the sizes in the game
         sizes = ["Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan"]
 
@@ -90,25 +91,23 @@ def race_setup():
         print(f"Type 3 for {races[2]}")
         print(f"Type 4 for {races[3]}")
         print(f"Type 5 for {races[4]}")
-        print(f"Type 6 for {races[5]}")
-        print(f"Type 7 for {races[6]}")
 
         race_choice = input()  # User input for which race they want
 
         try:  # Making sure the user input a number and converting it to a list usable set
             race_choice = int(race_choice) - 1
 
-            if race_choice < 0 or race_choice > 6:  # Making sure they only used number in proper range
-                print("Please only type numbers between and including 1 through 7!")
+            if race_choice < 0 or race_choice > 4:  # Making sure they only used number in proper range
+                print("Please only type numbers between and including 1 through 5!")
 
-            if 0 <= race_choice <= 7:
+            if 0 <= race_choice <= 4:
                 print(f"You have chosen {races[race_choice]} here is a little bit about them")
                 print(race_descriptions.race_(race_choice))
                 print("Do you wish to continue (yes or no)")
                 yes_ = "yes y ye"  # variations of yes
                 no_ = "no n o on"  # Variations of no
 
-                if 0 <= race_choice <= 6:  # Making sure they choose the correct numbers, and then generates users size
+                if 0 <= race_choice <= 4:  # Making sure they choose the correct numbers, and then generates users size
                     size_choice = sizes[2]
 
                 while True:
@@ -146,9 +145,9 @@ def build_setup():  # The setup for the PC's alignment, background, build (class
 
     while True:
         # All the classes in the game
-        classes_ = ["Barbarian", "Cleric", "Druid", "Fighter", "Rouge", "Sorcerer", "Warlock"]
+        classes_ = ["Barbarian", "Cleric", "Druid", "Rouge", "Warlock"]
         # The health values for each class MAKE SURE THIS IS ALIGNED with ^
-        health_values = [12, 8, 8, 10, 8, 6, 8]
+        health_values = [12, 8, 8, 8, 8]
 
         print("Please choose a class.")
         print(f"Type 1 for {classes_[0]}")
@@ -156,18 +155,16 @@ def build_setup():  # The setup for the PC's alignment, background, build (class
         print(f"Type 3 for {classes_[2]}")
         print(f"Type 4 for {classes_[3]}")
         print(f"Type 5 for {classes_[4]}")
-        print(f"Type 6 for {classes_[5]}")
-        print(f"Type 7 for {classes_[6]}")
 
         build_choice = input()  # User input to choose which class they want
 
         try:  # Making sure the user input a number and converting it to a list usable set
             build_choice = int(build_choice) - 1
 
-            if build_choice < 0 or build_choice > 6:  # Making sure they choose the right numbers
-                print("Please only type numbers 1 through 7")
+            if build_choice < 0 or build_choice > 4:  # Making sure they choose the right numbers
+                print("Please only type numbers 1 through 5")
 
-            if 0 <= build_choice <= 6:
+            if 0 <= build_choice <= 4:
                 while True:
                     print(f"You have chosen {classes_[build_choice]} as your class, do you wish to continue?(yes or no)"
                           f"")
@@ -193,42 +190,6 @@ def build_setup():  # The setup for the PC's alignment, background, build (class
 
         try:
             if build_correct == "yes":
-                break
-        except UnboundLocalError:
-            pass
-
-    while True:  # To allow the user to start at any level they want
-        print("What level would you like to start at? (1 - 20)")
-        level_choice = input()
-
-        try:  # Making sure the user input a number and converting it to a list usable set
-            level_choice = int(level_choice)
-
-            if 1 < level_choice > 20:  # Making sure they only used numbers 1 through 20
-                print("Please only type a number between and including 1 through 20.")
-            if 1 <= level_choice <= 20:
-                print(f"You have chosen level {level_choice} as your starting level, is this correct? (yes or no)")
-
-                while True:  # Making sure they can change their mind
-                    yes_ = "yes y ye"  # variations of yes
-                    no_ = "no n o on"  # Variations of no
-
-                    lvl_correct = input().lower()
-
-                    if lvl_correct in yes_:
-                        print("Good luck!")
-                        lvl_correct = "yes"
-                        break
-                    if lvl_correct in no_:
-                        print("Then please choose again.")
-                        break
-                    else:
-                        print("Please type just yes or no.")
-        except ValueError:  # In case they don't type a number
-            print("Please only type a number.")
-
-        try:
-            if lvl_correct == "yes":
                 break
         except UnboundLocalError:
             pass
@@ -346,7 +307,7 @@ def build_setup():  # The setup for the PC's alignment, background, build (class
         except UnboundLocalError:
             pass
 
-    return alignment_choice, background_choice, build_choice, health_choice, level_choice
+    return alignment_choice, background_choice, build_choice, health_choice
 
 
 def build_options():
@@ -359,7 +320,7 @@ def build_options():
 # p_alignment, p_background, p_bonds, p_flaws, p_gender, p_height, p_ideals, p_lang, p_lvl, p_race, p_size, p_weight
 # p_c_abilities, p_r_traits, p_attacks, p_bg_options, p_build, p_health, p_proficiencies
 gender, lang_choices, race, size = race_setup()
-alignment, bg, build, health, lvl = build_setup()
+alignment, bg, build, health = build_setup()
 
 lang_str = ""
 lang_len = len(lang_choices)
@@ -375,6 +336,5 @@ with open("class_options.txt", "w") as f:
             f"gender={gender}" + "\n"
             f"health={health}" + "\n"
             f"languages={lang_str}" + "\n"
-            f"level={lvl}" + "\n"
             f"race={race}" + "\n"
             f"size={size}" + "\n")
