@@ -109,7 +109,7 @@ def race_setup():
                         if races[race_choice] == races[2]:
                             # Generates your language if you choose human (humans as a species only gain common
                             # But then they also gain one of your choice, so they still get to know 2 just you choose
-                            lang_choice = [languages[3]]
+                            lang_choice = [languages[2]]
                             print(f"Your race knows the languages {lang_choice}")
                             race_choice = races[race_choice]  # Generates chosen race if they choose human
                             race_correct = "yes"
@@ -319,8 +319,8 @@ alignment, bg, build, health = player_class_setup()
 lang_str = ""  # making it so when PC's with more than two languages come in here they are properly handled
 lang_len = len(lang_choices)
 for x in range(lang_len):
-    lang_len -= lang_len
-    lang_str = lang_str.__add__(f"{lang_choices[lang_len]}")
+    lang_len -= 1
+    lang_str = lang_str.__add__(f"{lang_choices[lang_len]} ")
 
 
 with open("class_options.txt", "w") as f:
