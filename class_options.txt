@@ -1,8 +1,0 @@
-alignment=Lawful Good
-background=Acolyte
-class=Bard
-gender=male
-health=8
-languages=DwarvishDwarvish
-race=Dwarf
-size=Medium
