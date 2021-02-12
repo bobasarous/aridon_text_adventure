@@ -1,8 +1,8 @@
 alignment=Lawful Good
 background=Acolyte
-class=Barbarian
+class=Bard
 gender=male
-health=12
-languages=OrcishDwarvish
+health=8
+languages=DwarvishDwarvish
 race=Dwarf
 size=Medium
