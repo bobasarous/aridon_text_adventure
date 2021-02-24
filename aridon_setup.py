@@ -64,6 +64,10 @@ def race_setup():
                             else:
                                 print("Please only type yes or no!")
 
+                        if gender_correct in yes_:
+                            break
+                        if gender_correct in no_:
+                            break
 
         except ValueError:  # In case they did not type a number
             print("Please type only numbers")
