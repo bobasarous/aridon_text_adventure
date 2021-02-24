@@ -5,6 +5,8 @@
 # TODO Add remaining character creation tools, class options, give players their background items, class items, pro.
 # TODO Add remaining character creation stuffs, bonds, flaws, height, weight, skin/eye color, etc...
 # TODO Separate everything into smaller, more manageable functions, gender, race, class, etc... all in own functions
+# ! FIX CLASS DOESN'T TELL YOU TO CHOOSE PROPER NUMBERS WHEN CHOOSING OUT OF RANGE BUT THEN DOES WHEN YOU CHOOSE
+# ! PROPERLY, then fucks up when you choose your background
 
 import game_descriptions
 
@@ -201,9 +203,9 @@ def player_class_setup():  # The setup for the PC's alignment, background, build
             try:  # Making sure the user input a number and converting it to a list usable set
                 player_class_choice = int(player_class_choice) - 1
 
-                if 0 <= player_class_choice >= 4:
+                if 0 <= player_class_choice <= 4:
                     break
-                if not 0 <= player_class_choice >= 5:
+                if not 0 <= player_class_choice <= 5:
                     print("Only numbers 1 through 6")
                     break
 
@@ -322,8 +324,7 @@ def player_class_setup():  # The setup for the PC's alignment, background, build
 
         while True:
 
-            print(
-                "Please choose a background, if you want further explanation on backgrounds 'The Players Handbook' is a great place to look")
+            print("Please choose a background, if you want further explanation on backgrounds 'The Players Handbook' is a great place to look")
             for amount, y in enumerate(backgrounds):
                 print(f"{amount + 1} for {backgrounds[amount]}")
 
@@ -403,6 +404,9 @@ def player_class_setup():  # The setup for the PC's alignment, background, build
                             break
                         else:
                             print("Please only yes or no")
+
+                if background_choice in backgrounds:
+                    break
 
                 if not 0 <= background_choice <= 13:
                     print("Please only 1 through 14")
