@@ -49,19 +49,21 @@ def race_setup():
                         no_ = "no n o on"
                         print("Please type your own gender")
                         gender_choice = input()
-                        print(f"You have chosen {gender_choice} as your gender are you sure you wish to continue?")
+                        while True:
+                            print(f"You have chosen {gender_choice} as your gender are you sure you wish to continue?")
 
-                        gender_correct = input().lower()
+                            gender_correct = input().lower()
 
-                        if gender_correct in yes_:
-                            print(f"You have chosen {gender_choice}, good luck!")
-                            gender_correct = "yes"
-                            break
-                        if gender_correct in no_:
-                            print("Alright, please try again.")
-                            break
-                        else:
-                            print("Please only type yes or no!")
+                            if gender_correct in yes_:
+                                print(f"You have chosen {gender_choice}, good luck!")
+                                gender_correct = "yes"
+                                break
+                            if gender_correct in no_:
+                                print("Alright, please try again.")
+                                break
+                            else:
+                                print("Please only type yes or no!")
+
 
         except ValueError:  # In case they did not type a number
             print("Please type only numbers")
@@ -101,7 +103,7 @@ def race_setup():
                     break
 
                 for amount, _ in enumerate(races):
-                    print(f"{amount +1} for a {races[amount]} description.")
+                    print(f"{amount + 1} for a {races[amount]} description.")
                 # print(f"Type 1 for a {races[0]} description.")
                 # print(f"Type 2 for a {races[1]} description.")
                 # print(f"Type 3 for a {races[2]} description.")
@@ -316,7 +318,8 @@ def player_class_setup():  # The setup for the PC's alignment, background, build
 
         while True:
 
-            print("Please choose a background, if you want further explanation on backgrounds 'The Players Handbook' is a great place to look")
+            print(
+                "Please choose a background, if you want further explanation on backgrounds 'The Players Handbook' is a great place to look")
             for amount, y in enumerate(backgrounds):
                 print(f"{amount + 1} for {backgrounds[amount]}")
 
